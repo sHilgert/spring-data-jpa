@@ -9,11 +9,9 @@ import br.fatec.atividade07.model.Usuario;
 
 public interface UsuarioService {
 	
-	public void salvaUsuario(Usuario usuario);
 	public Usuario buscaPorId(Long id);
-	
 	public Usuario updateCartao(Long usuario_id, Cartao cartao);
-	
+	public void criaUsuario(String nome, List<Artigo> artigos, Cartao cartao);
 	public List<Artigo> buscaArtigos(Long usuario_id);
 	public void updateArtigos(Usuario usuario, List<Artigo> artigos);
 	public boolean artigoPertenceAoUsuario(Usuario usuario, Artigo artigo);

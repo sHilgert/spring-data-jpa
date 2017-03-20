@@ -6,4 +6,5 @@ import br.fatec.atividade07.model.Categoria;
 
 public interface CategoriaRepository extends CrudRepository<Categoria, Long> {
 
+	public Categoria findById(Long id);
 }

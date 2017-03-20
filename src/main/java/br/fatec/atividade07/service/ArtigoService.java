@@ -8,8 +8,8 @@ import br.fatec.atividade07.model.Categoria;
 public interface ArtigoService {
 
 	public List<Artigo> getArtigos();
-	public boolean artigoPertenceCategoria(Long artigo_id, Categoria categoria);
+	public boolean artigoPertenceCategoria(Long artigo_id, Long categoria_id);
 	public Artigo buscaPorId(Long id);
-	public List<Artigo> artigosPertencentesCategoria(Categoria categoria);
+	public List<Artigo> artigosPertencentesCategoria(Long categoria);
 	
 }
