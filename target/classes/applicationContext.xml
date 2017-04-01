@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
         
-    <context:component-scan base-package="br.gov.sp.fatec"/>
+    <context:component-scan base-package="br.fatec.atividade07"/>
     
     <jpa:repositories base-package="br.fatec.atividade07.repository"/>
 
@@ -18,9 +18,9 @@
     <bean id="dataSource" 
          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/estoque" />
+        <property name="url" value="jdbc:mysql://localhost:3306/teste" />
         <property name="username" value="root" />
-        <property name="password" value="adm1n" />
+        <property name="password" value="root" />
     </bean>
     
     <bean id="entityManagerFactory"

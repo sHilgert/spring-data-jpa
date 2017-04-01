@@ -1,5 +1,6 @@
 package br.fatec.atividade07.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,38 +13,26 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "USR_USUARIO")
 public class Usuario {
-	
-	@Id 
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "USR_ID")
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "USR_ID")
 	private Long id;
-	
-    @Column(name = "USR_NOME", unique=true, length = 20, nullable = false)
-    private String nome;
-    
-    @OneToOne(fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn
-    private Cartao cartao;
-    
 
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    @JoinColumn(name="ART_ID")
-    private List<Artigo> artigos;
-    
+	@Column(name = "USR_NOME", unique = true, length = 20, nullable = false)
+	private String nome;
 
-	public List<Artigo> getArtigos() {
-		return artigos;
-	}
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CRT_ID", nullable = false)
+	private Cartao cartao;
 
-	public void setArtigos(List<Artigo> artigos) {
-		this.artigos = artigos;
-	}
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "owner", cascade = CascadeType.ALL)
+	private List<Artigo> artigos;
 
 	public Long getId() {
 		return id;
@@ -68,6 +57,20 @@ public class Usuario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-    
-    
+
+	public List<Artigo> getArtigos() {
+		return artigos;
+	}
+
+	public void setArtigos(ArrayList<Artigo> artigos) {
+		this.artigos = artigos;
+	}
+
+	public void addArtigo(Artigo artigo) {
+		this.artigos.add(artigo);
+		if (artigo.getOwner() != this) {
+			artigo.setOwner(this);
+		}
+	}
+
 }

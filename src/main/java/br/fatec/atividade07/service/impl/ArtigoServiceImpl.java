@@ -18,19 +18,19 @@ public class ArtigoServiceImpl implements ArtigoService {
 
 	@Autowired
 	private ArtigoRepository artigoRepository;
-	
+
 	@Autowired
 	private CategoriaArtigoRepository categoriaArtigoRepository;
-	
-	
+
 	public List<Artigo> getArtigos() {
-		List<Artigo> artigos = (ArrayList<Artigo>) artigoRepository.findAll();		
+		List<Artigo> artigos = (ArrayList<Artigo>) artigoRepository.findAll();
 		return artigos;
 	}
 
 	public boolean artigoPertenceCategoria(Long artigo_id, Long categoria_id) {
-		CategoriaArtigo artigoCat = (CategoriaArtigo) categoriaArtigoRepository.articleBelongsToCat(artigo_id, categoria_id);
-		if(artigoCat == null)
+		CategoriaArtigo artigoCat = (CategoriaArtigo) categoriaArtigoRepository.articleBelongsToCat(artigo_id,
+				categoria_id);
+		if (artigoCat == null)
 			return false;
 		return true;
 	}
@@ -40,18 +40,26 @@ public class ArtigoServiceImpl implements ArtigoService {
 	}
 
 	public List<Artigo> artigosPertencentesCategoria(Long categoria_id) {
-		List<CategoriaArtigo> categoriaArtigos = (List<CategoriaArtigo>) categoriaArtigoRepository.getAllArticlesByCategory(categoria_id);
+		List<CategoriaArtigo> categoriaArtigos = (List<CategoriaArtigo>) categoriaArtigoRepository
+				.getAllArticlesByCategory(categoria_id);
 		List<Artigo> artigos = new ArrayList<Artigo>();
-		for(CategoriaArtigo catArt: categoriaArtigos){
+		for (CategoriaArtigo catArt : categoriaArtigos) {
 			artigos.add(buscaPorId(catArt.getArtId()));
 		}
-		
-		return artigos; 
+
+		return artigos;
 	}
-	
+
 	@Transactional
-	public void createArtigo(Artigo artigo){
+	public void create(Artigo artigo) {
 		artigoRepository.save(artigo);
+	}
+
+	@Transactional
+	public void create(List<Artigo> arts) {
+		for (Artigo a : arts) {
+			create(a);
+		}
 	}
 
 }

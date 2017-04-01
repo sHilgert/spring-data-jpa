@@ -11,10 +11,11 @@ import javax.persistence.Table;
 public class CategoriaArtigo {
 
 	@Id
+	private Long id;
+	
 	@Column(name = "CAT_ID")
 	private Long catId;
-	
-	@Id
+
 	@Column(name = "ART_ID")
 	private Long artId;
 
@@ -32,6 +33,14 @@ public class CategoriaArtigo {
 
 	public void setArtId(Long artId) {
 		this.artId = artId;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	

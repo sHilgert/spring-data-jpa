@@ -6,4 +6,5 @@ import br.fatec.atividade07.model.Cartao;
 
 public interface CartaoRepository extends CrudRepository<Cartao, Long> {
 
+	public Cartao findByNumero(Long id);
 }
