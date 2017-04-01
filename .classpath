@@ -17,6 +17,7 @@
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-orm/4.2.4.RELEASE/spring-orm-4.2.4.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-jdbc/4.2.4.RELEASE/spring-jdbc-4.2.4.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-tx/4.2.4.RELEASE/spring-tx-4.2.4.RELEASE.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/spring-test/4.2.4.RELEASE/spring-test-4.2.4.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/data/spring-data-jpa/1.9.2.RELEASE/spring-data-jpa-1.9.2.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.13/slf4j-api-1.7.13.jar"/>
