@@ -62,4 +62,10 @@ public class ArtigoServiceImpl implements ArtigoService {
 		}
 	}
 
+	@Override
+	public Artigo buscaPorTitulo(String titulo) {
+		return artigoRepository.findByTitulo(titulo);
+
+	}
+
 }
